@@ -16,7 +16,7 @@ function PageNotFound() {
             navigate("/");
           }}
         >
-          Back Home
+          Trang chủ
         </Button>
       }
     />
