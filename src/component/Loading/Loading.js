@@ -1,6 +1,6 @@
 function Loading() {
   return (
-    <div class="lds-roller">
+    <div className="lds-roller mb-10 flex justify-center w-full">
       <div></div>
       <div></div>
       <div></div>

@@ -1,25 +1,28 @@
-import { Button, Result } from "antd";
-import { useNavigate } from "react-router-dom";
-
 function PageNotFound() {
-  const navigate = useNavigate();
-
   return (
-    <Result
-      status="404"
-      title="404"
-      subTitle="Không tìm thấy đường dẫn :<<<."
-      extra={
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Trang chủ
-        </Button>
-      }
-    />
+    <section class="page_404">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 ">
+            <div class="col-sm-10 col-sm-offset-1  text-center">
+              <div class="four_zero_four_bg">
+                <h1 class="text-center ">404</h1>
+              </div>
+
+              <div class="contant_box_404">
+                <h3 class="h2">Không tìm thấy trang</h3>
+
+                <p>{"Trang bạn đang tìm kiếm không tồn tại :<<<"}</p>
+
+                <a href="/" class="link_404">
+                  Trang chủ
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 export default PageNotFound;
