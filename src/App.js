@@ -67,17 +67,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <Layout className="min-h-screen bg-white">
-      <Header>Đây là header</Header>
-
-      <Content>
-        <Space className="w-full px-10 py-10 m-0">{routes}</Space>
-      </Content>
-
-      <Footer>Đây là footer</Footer>
-    </Layout>
-  );
+  return <div>{routes}</div>;
 }
 
 export default App;
