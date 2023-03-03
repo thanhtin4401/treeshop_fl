@@ -14,8 +14,9 @@ import React from "react";
 import Background from "../../assets/images/bgLogin.jpg";
 import CardEmpty from "../../component/common/CardEmpty";
 import Loading from "../../component/Loading/Loading";
+import { PAGEURL } from "../../constant/route";
 
-const { Text, Link } = Typography;
+const { Link } = Typography;
 
 function LoginPage() {
   const [form] = Form.useForm();
@@ -29,12 +30,36 @@ function LoginPage() {
   };
 
   return (
-    <React.Fragment>
-      <Row gutter={[10, 0]}>
-        <Col span={24} className="flex justify-center items-center">
+    <div className="px-10">
+      <Row>
+        <Col
+          xl={16}
+          lg={16}
+          md={24}
+          sm={24}
+          xs={24}
+          className="flex items-end mt-10"
+        >
           {!requesting ? (
             <div className="flex justify-center items-end">
               <Space direction="vertical" className="flex justify-end mr-10">
+                <Space className="flex justify-end">
+                  <img
+                    src={Background}
+                    alt=""
+                    className="img-bg-homepage ml-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                  />
+                  <img
+                    src={Background}
+                    alt=""
+                    className="img-bg-homepage ml-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                  />
+                  <img
+                    src={Background}
+                    alt=""
+                    className="img-bg-homepage ml-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                  />
+                </Space>
                 <Title className="text-right">Tree Shop</Title>
 
                 <div className="text-right">
@@ -42,36 +67,25 @@ function LoginPage() {
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
                   printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </div>
-
-                <div className="flex justify-end">
-                  <Button
-                    className="btn-primary"
-                    icon={<LoginOutlined />}
-                    onClick={handleLogin}
-                    loading={requesting}
-                  >
-                    Đăng nhập
-                  </Button>
+                  specimen book.
                 </div>
               </Space>
-
-              <img src={Background} alt="" className="img-bg-homepage" />
             </div>
           ) : (
             <Loading />
           )}
         </Col>
 
-        {/* <Col span={24} className="w-full flex justify-center">
+        <Col
+          xl={8}
+          lg={8}
+          md={24}
+          sm={24}
+          xs={24}
+          className="w-full flex justify-center mt-10"
+        >
           <CardEmpty
-            className="mt-10"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             isRadius={true}
             isShadow={true}
             children={
@@ -88,17 +102,17 @@ function LoginPage() {
                 <Divider className="mt-0" />
 
                 <Form.Item
-                  label="Tên đăng nhập"
+                  label="Số điện thoại"
                   name="username"
                   rules={[
                     {
                       required: true,
-                      message: "Vui lòng nhập tên đăng nhập!",
+                      message: "Vui lòng nhập số điện thoại!",
                     },
                   ]}
                   className="w-full"
                 >
-                  <Input placeholder="Tên đăng nhập ..." />
+                  <Input placeholder="Số điện thoại ..." />
                 </Form.Item>
 
                 <Form.Item
@@ -119,7 +133,7 @@ function LoginPage() {
 
                 <Form.Item className="justify-center">
                   <Button
-                    className="btn-primary"
+                    className="btn-success"
                     icon={<LoginOutlined />}
                     onClick={handleLogin}
                     loading={requesting}
@@ -130,7 +144,10 @@ function LoginPage() {
 
                   <div className="mt-10 flex justify-center">
                     Bạn chưa có tài khoản?{" "}
-                    <Link href="" className="ml-1">
+                    <Link
+                      className="font-bold ml-1"
+                      href={PAGEURL.REGIS}
+                    >
                       {" "}
                       Đăng ký tại đây
                     </Link>
@@ -139,9 +156,9 @@ function LoginPage() {
               </Form>
             }
           />
-        </Col> */}
+        </Col>
       </Row>
-    </React.Fragment>
+    </div>
   );
 }
 

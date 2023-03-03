@@ -1,7 +1,11 @@
-.txt-r {
-  text-align: right !important;
-}
-
 button span {
   display: inline-flex !important;
+}
+
+.filter {
+  background-color: white !important;
+  margin-bottom: 2rem !important;
+  border-radius: 10px !important;
+  min-height: 72px;
+  padding: 12px 16px 20px 16px;
 }

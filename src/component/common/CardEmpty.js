@@ -5,7 +5,7 @@ function CardEmpty(props) {
     <div
       className={`bg-white ${isRadius && "rounded-[10px]"} ${
         isShadow && "shadow hover:shadow-2xl"
-      } ${className && className} max-w-md min-w-[75%] border p-5`}
+      } ${className && className} max-w-md border p-5`}
     >
       {children}
     </div>
