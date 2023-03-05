@@ -144,10 +144,7 @@ function LoginPage() {
 
                   <div className="mt-10 flex justify-center">
                     Bạn chưa có tài khoản?{" "}
-                    <Link
-                      className="font-bold ml-1"
-                      href={PAGEURL.REGIS}
-                    >
+                    <Link className="font-bold ml-1" href={PAGEURL.REGIS}>
                       {" "}
                       Đăng ký tại đây
                     </Link>
