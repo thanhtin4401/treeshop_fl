@@ -9,6 +9,7 @@ import ProductTypePage from "../page/ProductType/ProductTypePage";
 import ProductPage from "../page/Product/ProductPage";
 import OrderPage from "../page/Order/OrderPage";
 import UserPage from "../page/User/UserPage";
+import PaymentPage from "../page/Payment/PaymentPage";
 
 const isLogin = false;
 
@@ -30,6 +31,8 @@ const routes = isLogin ? (
       <Route path={PAGEURL.MANAGER.PRODUCTTYPE} element={<ProductTypePage />} />
     </Route>
 
+    <Route path={PAGEURL.PAYMENT} element={<PaymentPage />} />
+    
     <Route path="*" element={<PageNotFound />} />
   </Routes>
 );
