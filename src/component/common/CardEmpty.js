@@ -1,5 +1,5 @@
 function CardEmpty(props) {
-  const { children, isRadius, isShadow, className } = props;
+  const { children, isRadius, isShadow, className  } = props;
 
   return (
     <div

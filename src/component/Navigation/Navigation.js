@@ -1,7 +1,11 @@
+import { Badge, Button } from "antd";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { PAGEURL } from "../../constant/route";
 import "./Navigation.scss";
-import { Avatar, Badge, Button } from "antd";
+
 function Navigation() {
+  const navigate = useNavigate();
   const [count, setCount] = useState(5);
 
   return (
@@ -34,7 +38,14 @@ function Navigation() {
               </div>
             </Badge>
           </button>
-          <Button shape="round" className="loginBTN" type="primary">
+          <Button
+            shape="round"
+            onClick={() => {
+              navigate(PAGEURL.LOGIN);
+            }}
+            className="loginBTN"
+            type="primary"
+          >
             Đăng nhập
           </Button>
         </div>

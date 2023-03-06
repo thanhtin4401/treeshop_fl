@@ -1,101 +1,93 @@
-import { Button, Col, Divider, Form, Input, Row, Space } from "antd";
+import { DollarOutlined } from "@ant-design/icons";
+import { Button, Col, Divider, Row, Space } from "antd";
+import Title from "antd/es/skeleton/Title";
 import React from "react";
-import CardEmpty from "../../component/common/CardEmpty";
 import Background from "../../assets/images/bgLogin.jpg";
-import { LoginOutlined } from "@ant-design/icons";
+import CardEmpty from "../../component/common/CardEmpty";
 
 function PaymentPage() {
-  const [form] = Form.useForm();
-
   return (
-    <div>
-      <Row>
-        <Col
-          xl={16}
-          lg={16}
-          md={24}
-          sm={24}
-          xs={24}
-          className="flex items-end mt-10"
-        >
-          <div className="flex justify-center items-end">
-            <Space direction="vertical" className="flex justify-end mr-10">
-              <Space className="flex justify-end">
-                <img
-                  src={Background}
-                  alt=""
-                  className="max-w-[300px] ml-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                />
-              </Space>
-            </Space>
-          </div>
-        </Col>
+    <Row className="flex justify-center items-center">
+      <Space className="my-10">
+        <Space direction="vertical" className="mx-10">
+          <Title className="text-success">Thông tin đơn hàng</Title>
 
-        <Col
-          xl={8}
-          lg={8}
-          md={24}
-          sm={24}
-          xs={24}
-          className="w-full flex justify-center mt-10"
-        >
           <CardEmpty
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             isRadius={true}
             isShadow={true}
+            className="min-w-[450px] max-w-[720px] mb-5"
             children={
-              <Form
-                form={form}
-                layout="vertical"
-                className="form-row-gap-0"
-              >
-                <Divider className="mt-0" />
+              <Row>
+                <Title level={2}>Thông tin người nhận</Title>
 
-                <Form.Item
-                  label="Số điện thoại"
-                  name="username"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Vui lòng nhập số điện thoại!",
-                    },
-                  ]}
-                  className="w-full"
-                >
-                  <Input placeholder="Số điện thoại ..." />
-                </Form.Item>
-
-                <Form.Item
-                  label="Mật khẩu"
-                  name="password"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Vui lòng nhập mật khẩu!",
-                    },
-                  ]}
-                  className="w-full"
-                >
-                  <Input.Password placeholder="Mật khẩu ..." />
-                </Form.Item>
-
-                <Divider className="mt-0" />
-
-                <Form.Item className="justify-center">
-                  <Button
-                    className="btn-success"
-                    icon={<LoginOutlined />}
-                    block
-                  >
-                    Đăng nhập
-                  </Button>
-                </Form.Item>
-              </Form>
+                <Col span={8}>Tên người nhận hàng:</Col>
+                <Col span={16} className="font-bold">
+                  Võ Minh Hoàng
+                </Col>
+                <Col span={8}>Địa chỉ nhận hàng:</Col>
+                <Col span={16} className="font-bold">
+                  Võ Minh Hoàng Võ Minh Hoàng Võ Minh Hoàng Võ Minh Hoàng Võ
+                  Minh Hoàng Võ Minh Hoàng
+                </Col>
+              </Row>
             }
           />
-        </Col>
-      </Row>
-    </div>
+          <CardEmpty
+            isRadius={true}
+            isShadow={true}
+            className="min-w-[450px] max-w-[720px]"
+            children={
+              <div className="w-full flex items-center">
+                <Space>
+                  <img
+                    src={Background}
+                    alt=""
+                    className="rounded-[10px] max-w-[100px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                  />
+                </Space>
+
+                <Space direction="vertical w-full ml-10">
+                  <Row className="items-center">
+                    <Col className="font-bold text-lg">VÕ MINH HOÀNG</Col>
+
+                    <Divider className="my-1" />
+
+                    <Col span={12}>Đơn giá:</Col>
+                    <Col span={12} className="font-bold text-success text-2xl">
+                      <div className="w-full flex justify-end">100$</div>
+                    </Col>
+
+                    <Col span={12}>Số lượng:</Col>
+                    <Col span={12} className="font-bold text-success text-2xl">
+                      <div className="w-full flex justify-end">10</div>
+                    </Col>
+
+                    <Divider className="my-1" />
+
+                    <Col span={12} className="font-bold text-success">
+                      Thành tiền:
+                    </Col>
+                    <Col span={12} className="font-bold text-success text-2xl">
+                      <div className="w-full flex justify-end">1000$</div>
+                    </Col>
+                  </Row>
+                </Space>
+              </div>
+            }
+          />
+
+          <Divider />
+
+          <Button
+            className="btn-success transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+            icon={<DollarOutlined />}
+            block
+          >
+            Thanh toán
+          </Button>
+        </Space>
+      </Space>
+    </Row>
   );
 }
 
