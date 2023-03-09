@@ -1,0 +1,13 @@
+.liveAnyway {
+    position: relative;
+     ::after {
+        content: "";
+        width: 100%;
+        background-color: black;
+        position: absolute;
+    }
+}
+
+.live-img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Rate } from "antd";
+import "./CardItem.scss";
 function CardItem() {
   const [value, setValue] = useState(3);
 
@@ -7,7 +8,7 @@ function CardItem() {
     <div className="card-item p-3 rounded-[0.5rem] bg-[transparent] transition-all hover:bg-slate-200">
       <div className=" rounded-[0.5rem] ">
         <img
-          className="h-[10rem] w-full object-cover rounded-[0.5rem]"
+          className="h-[16rem] w-full object-cover rounded-[0.5rem]"
           src="https://www.chauximang.com/wp-content/uploads/2020/06/top-14-cay-canh-dep-nhat-viet-nam-8.jpg"
           alt=""
         />
@@ -36,7 +37,7 @@ function CardItem() {
           <h3 className="price font-bold text-[17px] text-[#2676F7]">$830</h3>
           <Button
             type="primary"
-            className="add-to-cart flex items-center p-[0.5rem] rounded-[0.5rem]"
+            className="bg-[#7FA25C] add-to-cart flex items-center p-[0.5rem] rounded-[0.5rem]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

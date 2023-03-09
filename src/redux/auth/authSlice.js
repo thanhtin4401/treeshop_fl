@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
-import { https } from "../../services/axiosClient";
+import { https } from "../../service/apiService";
 import { localStorageService } from "../../service/localStogeService";
 
 const initialState = {
