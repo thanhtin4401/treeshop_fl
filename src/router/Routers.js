@@ -12,6 +12,7 @@ import UserPage from "../page/User/UserPage";
 import OrderPage from "../page/Order/OrderPage";
 import ProductPage from "../page/Product/ProductPage";
 import ProductTypePage from "../page/ProductType/ProductTypePage";
+import RequestPage from "./ProtectRouter/requestPage";
 import PageNotFound from "../component/PageNotFound/PageNotFound";
 import { PAGEURL } from "../constant/route";
 
@@ -36,15 +37,18 @@ export default function Routers() {
           <Route path={PAGEURL.MANAGER.USER} element={<UserPage />} />
           <Route path={PAGEURL.MANAGER.ORDER} element={<OrderPage />} />
           <Route path={PAGEURL.MANAGER.PRODUCT} element={<ProductPage />} />
-          <Route path={PAGEURL.MANAGER.PRODUCTTYPE} element={<ProductTypePage />} />
+          <Route
+            path={PAGEURL.MANAGER.PRODUCTTYPE}
+            element={<ProductTypePage />}
+          />
         </Route>
 
         <Route
           path="/"
           element={
-            <requestPage>
+            <RequestPage>
               <AuthLayout />
-            </requestPage>
+            </RequestPage>
           }
         >
           <Route path={PAGEURL.LOGIN} element={<LoginPage />}></Route>

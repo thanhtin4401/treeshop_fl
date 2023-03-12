@@ -4,9 +4,10 @@ import {
   Col,
   Divider,
   Form,
-  Input, Row,
+  Input,
+  Row,
   Space,
-  Typography
+  Typography,
 } from "antd";
 import Title from "antd/es/typography/Title";
 import React from "react";
@@ -14,13 +15,16 @@ import Background from "../../assets/images/bgLogin.jpg";
 import CardEmpty from "../../component/common/CardEmpty";
 import Loading from "../../component/Loading/Loading";
 import { PAGEURL } from "../../constant/route";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../redux/auth/authSlice";
+import { https } from "../../service/apiService";
 
 const { Link } = Typography;
 
 function LoginPage() {
   const [form] = Form.useForm();
   const requesting = false;
-
+  const dispatch = useDispatch();
   const handleLogin = () => {
     form.submit();
   };
@@ -29,6 +33,7 @@ function LoginPage() {
       phone_number: e.phone_number,
       password: e.password,
     };
+    dispatch(loginUser(data));
   };
 
   return (

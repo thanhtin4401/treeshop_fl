@@ -1,12 +1,10 @@
-import axios from 'axios';
-import { localStorageService } from './localStogeService';
-
-export const TOKEN = process.env.REACT_APP_TOKEN;
+import axios from "axios";
+import { localStorageService } from "./localStogeService";
 
 export const https = axios.create({
-  // baseURL: process.env.REACT_APP_API_KEY,
+  baseURL: process.env.REACT_APP_API_KEY,
   headers: {
-    Authorization: `Bearer ${localStorageService.get('accessToken')}`
+    Authorization: `Bearer ${localStorageService.get("accessToken")}`,
   },
 });
 
