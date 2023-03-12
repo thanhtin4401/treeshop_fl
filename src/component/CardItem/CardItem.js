@@ -5,7 +5,7 @@ function CardItem() {
   const [value, setValue] = useState(3);
 
   return (
-    <div className="card-item p-3 rounded-[0.5rem] bg-[transparent] transition-all hover:bg-slate-200">
+    <div className="card-item p-3 relative rounded-[0.5rem] bg-[transparent] transition-all hover:bg-slate-200">
       <div className=" rounded-[0.5rem] ">
         <img
           className="h-[16rem] w-full object-cover rounded-[0.5rem]"
@@ -56,6 +56,14 @@ function CardItem() {
             <p className="text-white text-[14px]">Add to cart</p>{" "}
           </Button>
         </div>
+      </div>
+      <div className="home-product-item__favourite">
+        <i className="home-product-item__favourite-icon fas fa-check"></i>
+        <span>Yêu thích</span>
+      </div>
+      <div className="home-product-item__sale-off">
+        <span className="home-product-item__sale-off-percent">10%</span>
+        <span className="home-product-item__sale-off-lable">GIẢM</span>
       </div>
     </div>
   );

@@ -5,3 +5,81 @@
 .card-item {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.home-product-item__sale-off {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    background-color: rgba(255, 216, 64, 0.9);
+    border-top-right-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-product-item__sale-off::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-width: 0 20px 10px;
+    border-style: solid;
+    border-color: transparent rgba(255, 216, 64, 0.9) transparent rgba(255, 216, 64, 0.9);
+}
+
+.home-product-item__sale-off-lable {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.home-product-item__sale-off-percent {
+    color: #EE4D2D;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-top: 2px;
+    line-height: 1.3rem;
+}
+
+.home-product-item__favourite {
+    position: absolute;
+    top: 10px;
+    left: -4px;
+    font-size: 0.8rem;
+    /* currenColor thuoc tinh doi mau theo color */
+    color: white;
+    background-color: #ee4d2d;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+    line-height: 16px;
+    padding-right: 4px;
+    z-index: 1;
+}
+
+.home-product-item__favourite {
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        /* currentColor o day an theo thang color cha */
+        border-top: 4px solid currentColor;
+        border-left: 4px solid transparent;
+        filter: brightness(60%);
+    }
+}
+
+.home-product-item__favourite {
+    span {
+        color: white;
+    }
+}
+
+.home-product-item__favourite-icon {
+    font-size: 0.6rem;
+    margin: 0 2px 0 4px;
+    color: white;
+}

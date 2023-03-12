@@ -3,6 +3,7 @@ import UserNav from "./UserNav";
 import { RiMovie2Fill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import "./HeaderTheme.scss";
+import { Button } from "antd";
 export default function HeaderTheme() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [navbar, setNavbar] = useState(false);
@@ -22,13 +23,13 @@ export default function HeaderTheme() {
   window.addEventListener("scroll", changeBackground);
 
   return (
-    <div className="nav__wrapped  w-full  relative container ">
+    <div className="nav__wrapped  w-full z-20 relative container ">
       <nav
         id="nav"
-        className={`flex transition-all ${
+        className={`flex transition-all  ${
           navbar
-            ? "bg-white  border-white drop-shadow-[0_35px_35px_rgba(255,255,255,0.25)]"
-            : " bg-[#ffffffab] border-[#000000ab]"
+            ? "bg-[white] header-active border-white drop-shadow-lg"
+            : " bg-[#ffffffab] border-[rgba(0,0,0,0.67)]"
         }  fixed z-10  border-b-[1px] w-full items-center justify-between flex-wrap mb:px-8 sm:px-8 md:px-16 top-0 py-4`}
       >
         <div className="block lg:hidden sm:block mb:block">
@@ -36,7 +37,12 @@ export default function HeaderTheme() {
             onClick={() => {
               handleIsOpenMenu();
             }}
-            className="btn__nav flex items-center rounded text-white border-ehite hover:text-white hover:border-white"
+            style={{
+              padding: "0.5rem",
+              background: "transparent",
+              border: "1px solid gray",
+            }}
+            className="btn__nav flex items-center rounded text-white border-white hover:text-white hover:border-white"
           >
             <svg
               className="fill-current h-5 w-5"
@@ -59,13 +65,13 @@ export default function HeaderTheme() {
         </div>
         <div
           className={`nav__menu w-full block overflow-hidden flex-grow lg:flex lg:items-center lg:w-auto text-white mb:order-1 sm:order-1 md:order-1 lg:order-none ${
-            isOpenMenu ? "mb:h-[320px] sm:h-[320px]" : "mb:h-0 sm:h-0"
+            isOpenMenu ? "mb:h-[250px] sm:h-[250px]" : "mb:h-0 sm:h-0"
           } transition-all ease-in  lg:h-full duration-300 lg:opacity-100 text-center`}
         >
           <div className=" justify-center font-bold nav__links text-sm lg:flex-grow mb:mr-0 sm:mr-0 lg:mr-5 lg:flex">
             <a
               className={`hover:text-red-500 no-underline ${
-                navbar ? "text-[#7FA25C]" : "text-black"
+                navbar ? "text-[#7FA25C]" : "text-[black]"
               }  block mt-4 lg:inline-block lg:mt-0 mb:py-3 mb:ml-0 sm:ml-0 text-left sm:py-3 lg:py-0 mb:mr-0 sm:mr-0 lg:mr-4`}
               href="#listMovie"
             >
@@ -73,24 +79,26 @@ export default function HeaderTheme() {
             </a>
             <a
               className={`hover:text-red-500 no-underline ${
-                navbar ? "text-[#7FA25C]" : "text-black"
-              }  mb:hidden block mt-4 lg:inline-block lg:mt-0 mb:py-3 mb:ml-0 sm:ml-0 text-left sm:py-3 lg:py-0 mb:mr-0 sm:mr-0 lg:mr-4`}
+                navbar ? "text-[#7FA25C]" : "text-[black]"
+              }  block mt-4 lg:inline-block lg:mt-0 mb:py-3 mb:ml-0 sm:ml-0 text-left sm:py-3 lg:py-0 mb:mr-0 sm:mr-0 lg:mr-4`}
               href="#cumRap"
             >
               DỊCH VỤ
             </a>
             <a
               className={`hover:text-red-500 no-underline ${
-                navbar ? "text-[#7FA25C]" : "text-black"
+                navbar ? "text-[#7FA25C]" : "text-[black]"
               }  block mt-4 lg:inline-block lg:mt-0 mb:py-3 mb:ml-0 sm:ml-0 text-left sm:py-3 lg:py-0 mb:mr-0 sm:mr-0 lg:mr-4`}
               href="#gioiThieu"
             >
               GIỚI THIỆU
             </a>
+
+            <Button className="w-full mt-4 lg:hidden">Đăng xuất</Button>
           </div>
-          <div className="lg:min-w-[10rem]">
-            <UserNav />
-          </div>
+        </div>
+        <div className="lg:min-w-[10rem]">
+          <UserNav />
         </div>
       </nav>
     </div>

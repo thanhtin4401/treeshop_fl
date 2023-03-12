@@ -1,3 +1,7 @@
 .scroll-to-top {
     background-color: #7FA25C!important;
+    z-index: 12;
+    svg {
+        fill: white
+    }
 }

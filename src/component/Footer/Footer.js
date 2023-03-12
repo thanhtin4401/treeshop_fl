@@ -23,7 +23,7 @@ export default function Footer() {
     });
   };
   return (
-    <div className="footer" style={{ backgroundColor: "#151515" }}>
+    <div className="footer" style={{ backgroundColor: "black" }}>
       <ScrollToTop
         smooth
         top={200}
@@ -87,8 +87,8 @@ export default function Footer() {
             Mạng xã hội
           </h1>
           <div className="my-3 flex items-center gap-5">
-            <BsFacebook className="text-2xl text-white hover:text-red-600 transition duration-300" />
-            <BsInstagram className="text-2xl text-white hover:text-red-600 transition duration-300" />
+            <BsFacebook className="text-2xl text-[white] hover:text-red-600 transition duration-300" />
+            <BsInstagram className="text-2xl text-[white] hover:text-red-600 transition duration-300" />
           </div>
         </div>
       </div>
