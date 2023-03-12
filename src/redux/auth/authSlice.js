@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
+import { ApiConstants } from "../../constant/apiConstant";
 import { https } from "../../service/apiService";
 import { localStorageService } from "../../service/localStogeService";
+import rootReducer from "../reducer";
 
 const initialState = {
   accessToken: null,
@@ -16,10 +18,10 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (user, thunkAPI) => {
     try {
-      const res = await https.post("/api/auth/signin", user);
+      const res = await https.post(ApiConstants.login, user);
 
-      localStorageService.set("accessToken", res.data.content.token);
-      localStorageService.set("USER", res.data.content);
+      localStorageService.set("accessToken", res.data.data.token);
+      localStorageService.set("USER", res.data.data);
       message.success("login success");
 
       return res.data;

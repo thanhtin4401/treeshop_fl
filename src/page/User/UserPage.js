@@ -1,6 +1,8 @@
 import { EyeOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button, Col, Form, Image, Input, Row, Space, Table } from "antd";
 import React, { useState } from "react";
+import { ApiConstants } from "../../constant/apiConstant";
+import { https } from "../../service/apiService";
 
 function UserPage() {
   const [form] = Form.useForm();
@@ -53,6 +55,10 @@ function UserPage() {
   };
   const handleFinish = async (e) => {
     console.log(e);
+    const url = ApiConstants.user.getAll;
+
+    const res = await https.get(url);
+    console.log(res);
   };
 
   return (

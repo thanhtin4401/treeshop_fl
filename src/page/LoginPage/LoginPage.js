@@ -4,10 +4,9 @@ import {
   Col,
   Divider,
   Form,
-  Input,
-  Row,
+  Input, Row,
   Space,
-  Typography,
+  Typography
 } from "antd";
 import Title from "antd/es/typography/Title";
 import React from "react";
@@ -25,8 +24,11 @@ function LoginPage() {
   const handleLogin = () => {
     form.submit();
   };
-  const handleFinish = async () => {
-    return 0;
+  const handleFinish = async (e) => {
+    const data = {
+      phone_number: e.phone_number,
+      password: e.password,
+    };
   };
 
   return (
@@ -103,7 +105,7 @@ function LoginPage() {
 
                 <Form.Item
                   label="Số điện thoại"
-                  name="username"
+                  name="phone_number"
                   rules={[
                     {
                       required: true,

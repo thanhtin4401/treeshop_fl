@@ -22,12 +22,12 @@ function PaymentPage() {
 
                 <Col span={8}>Tên người nhận hàng:</Col>
                 <Col span={16} className="font-bold">
-                  Võ Minh Hoàng
+                  Lorem Lorem Lorem
                 </Col>
                 <Col span={8}>Địa chỉ nhận hàng:</Col>
                 <Col span={16} className="font-bold">
-                  Võ Minh Hoàng Võ Minh Hoàng Võ Minh Hoàng Võ Minh Hoàng Võ
-                  Minh Hoàng Võ Minh Hoàng
+                  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                  Lorem Lorem
                 </Col>
               </Row>
             }
@@ -48,7 +48,7 @@ function PaymentPage() {
 
                 <Space direction="vertical w-full ml-10">
                   <Row className="items-center">
-                    <Col className="font-bold text-lg">VÕ MINH HOÀNG</Col>
+                    <Col className="font-bold text-lg">LOREM LOREM LOREM LOREM</Col>
 
                     <Divider className="my-1" />
 
