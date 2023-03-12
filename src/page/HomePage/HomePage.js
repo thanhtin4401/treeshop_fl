@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.scss";
 import CardItem from "../../component/CardItem/CardItem";
 import BannerCarousel from "../../component/BannerCarousel/BannerCarousel";
@@ -6,7 +6,21 @@ import IntroductionTree from "../../component/Introduction/IntroductTree";
 import { Button, Input, Space } from "antd";
 import LiveAnyway from "./Component/LiveAnyway/LiveAnyway";
 import ServiceSection from "./Component/ServiceSection/ServiceSection";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProduct } from "../../redux/produdct/productSlice";
+
 function HomePage() {
+  const dispatch = useDispatch();
+  const getAllProductRedux = useSelector((state) => state.product.allProduct);
+  const [allProduct, setAllProduct] = useState([]);
+  useEffect(() => {
+    dispatch(getAllProduct());
+  }, []);
+  useEffect(() => {
+    setAllProduct(getAllProductRedux);
+  }, [getAllProductRedux]);
+
+  console.log(allProduct);
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   return (

@@ -1,5 +1,5 @@
 export const PAGEURL = {
-  HOMEPAGE: "/home",
+  HOMEPAGE: "/",
   CART: "/cart",
   LOGIN: "/login",
   REGIS: "/register",

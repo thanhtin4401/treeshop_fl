@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
-import { ApiConstants } from "../../constant/apiConstant";
-import { https } from "../../service/apiService";
+
 import { localStorageService } from "../../service/localStogeService";
-import rootReducer from "../reducer";
+import { https } from "../../service/apiService";
 
 const initialState = {
   accessToken: null,
@@ -18,12 +17,11 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (user, thunkAPI) => {
     try {
-      const res = await https.post(ApiConstants.login, user);
-
+      const res = await https.post("/users/login", user);
       localStorageService.set("accessToken", res.data.data.token);
       localStorageService.set("USER", res.data.data);
       message.success("login success");
-
+      console.log(res);
       return res.data;
     } catch (error) {
       message.error(error.response.data);
@@ -33,29 +31,29 @@ export const loginUser = createAsyncThunk(
 );
 
 //LOGINOUT
-export const logoutUser = createAsyncThunk(
-  "auth/logoutUser",
-  async (user, thunkAPI) => {
-    try {
-      return user;
-    } catch (error) {
-      message.error("Login fail");
-    }
-  }
-);
-export const registerUser = createAsyncThunk(
-  "auth/registerUser",
-  async (infor, thunkAPI) => {
-    try {
-      const res = await https.post("/api/auth/signup", infor);
-      message.success("Register success");
-      return res.data;
-    } catch (error) {
-      message.error("Login fail");
-      return thunkAPI.rejectWithValue(error.response.data);
-    }
-  }
-);
+// export const logoutUser = createAsyncThunk(
+//   "auth/logoutUser",
+//   async (user, thunkAPI) => {
+//     try {
+//       return user;
+//     } catch (error) {
+//       message.error("Login fail");
+//     }
+//   }
+// );
+// export const registerUser = createAsyncThunk(
+//   "auth/registerUser",
+//   async (infor, thunkAPI) => {
+//     try {
+//       const res = await https.post("/api/auth/signup", infor);
+//       message.success("Register success");
+//       return res.data;
+//     } catch (error) {
+//       message.error("Login fail");
+//       return thunkAPI.rejectWithValue(error.response.data);
+//     }
+//   }
+// );
 
 //REGISTER
 
@@ -93,41 +91,41 @@ const authSlice = createSlice({
           accessToken: payload.token,
           isLoggedIn: false,
         };
-      })
-      .addCase(logoutUser.pending, (state) => {
-        return {
-          ...state,
-          isLoading: true,
-        };
-      })
-      .addCase(logoutUser.fulfilled, (state, { payload }) => {
-        return {
-          ...state,
-          isLoading: false,
-          isLoggedIn: false,
-        };
-      })
-      .addCase(registerUser.pending, (state) => {
-        return {
-          ...state,
-          isLoading: true,
-        };
-      })
-      .addCase(registerUser.fulfilled, (state, { payload }) => {
-        return {
-          ...state,
-          isLoading: false,
-          registerSuccess: true,
-        };
-      })
-      .addCase(registerUser.rejected, (state, { payload }) => {
-        return {
-          ...state,
-          isLoading: false,
-          registerSuccess: false,
-          isRegisterAccountSuccess: true,
-        };
       });
+    // .addCase(logoutUser.pending, (state) => {
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //   };
+    // })
+    // .addCase(logoutUser.fulfilled, (state, { payload }) => {
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //     isLoggedIn: false,
+    //   };
+    // })
+    // .addCase(registerUser.pending, (state) => {
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //   };
+    // })
+    // .addCase(registerUser.fulfilled, (state, { payload }) => {
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //     registerSuccess: true,
+    //   };
+    // })
+    // .addCase(registerUser.rejected, (state, { payload }) => {
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //     registerSuccess: false,
+    //     isRegisterAccountSuccess: true,
+    //   };
+    // });
   },
 });
 // Action creators are generated for each case reducer function
