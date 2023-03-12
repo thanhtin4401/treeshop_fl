@@ -1,12 +1,13 @@
-import { Badge, Button, message } from "antd";
+import { Badge, Button, Popover, message } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineLogout, MdOutlineLogin } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
-
+import "./UserNav.scss";
 // import { loginAction } from "../../Redux/Actions/userAction";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AmazonCircleFilled } from "@ant-design/icons";
+import ItemCart from "./Component/ItemCart/ItemCart";
 export default function UserNav() {
   let dispatch = useDispatch();
   let history = useNavigate();
@@ -15,46 +16,49 @@ export default function UserNav() {
   // let userInfo = useSelector((state) => {
   //   return state.userReducer.userInfo;
   // });
-  const [count, setCount] = useState();
+  const [count, setCount] = useState(5);
+
+  const content = (
+    <div className="">
+      <ItemCart />
+    </div>
+  );
 
   let userInfo = false;
-  const renderContent = () => {
-    if (userInfo) {
+  const checkLogin = (userInfo) => {
+    if (true) {
       return (
-        <div className="flex mb:flex-col sm:flex-col lg:flex-row mb:items-start sm:items-start lg:space-x-5 lg:items-center ">
-          <button
-            to="manager"
-            className="mb:py-[12px] mb:mt-[16px] sm:py-[12px] sm:mt-[16px] lg:mt-0 mb:w-full sm:w-full  font-bold flex items-center hover:text-red-500 transition duration-300 "
-            onClick={() => {
-              if (userInfo.maLoaiNguoiDung === "QuanTri") {
-                history("/manager");
-              } else {
-                setOpenUserInfo(true);
-              }
-            }}
+        <div className="flex items-center bg-[transparent] hover:bg-[#7FA25C] transition-all p-2 hover:text-[white] rounded-[0.2rem] justify-center cursor-pointer">
+          <div
+            className="rounded-[2rem] h-[32px] w-[32px] overflow-hidden lg:mr-2 "
+            style={{ border: "1px solid #7FA25C" }}
           >
-            <BsFillPersonFill className="mr-2" />
-            {userInfo.hoTen}
-          </button>
-          <button
-            onClick={() => {
-              // localStorageService.user.remove();
-              // dispatch(loginAction(null));
-              // message.success("Đăng xuất thành công!");
-              // setTimeout(() => {
-              //   history("/login");
-              // }, 1000);
-            }}
-            className="mb:py-[12px] mb:mt-[16px] sm:py-[12px] sm:mt-[16px] lg:mt-0 w-full sm: lg:px-2 lg:py-2 rounded font-bold flex items-center transition ease-in-out delay-15 hover:bg-red-500 duration-300 "
-          >
-            <MdOutlineLogout className="mr-2 text-xl" />{" "}
-            <span className="w-[5rem]">Đăng Xuất</span>
-          </button>
+            <img
+              className=""
+              src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-image-icon-default-avatar-profile-icon-social-media-user-vector-image-209162840.jpg"
+              alt=""
+            />
+          </div>
+          <h1 className="mb:hidden sm:hidden lg:block">Tran Luong Thanh...</h1>
         </div>
       );
     } else {
       return (
-        <div className="flex justify-end mb:flex-col sm:flex-col lg:flex-row mb:items-start sm:items-start lg:space-x-5 lg:items-center ">
+        <Button shape="round" className="loginBTN" type="primary">
+          Đăng nhập
+        </Button>
+      );
+    }
+  };
+  const renderContent = () => {
+    return (
+      <div className="flex justify-end items-center lg:flex-row mb:items-center sm:items-center lg:items-center ">
+        <Popover
+          placement="bottomRight"
+          className="popover-cart"
+          content={content}
+          title="giỏ hàng:"
+        >
           <button className="cart mr-2">
             <Badge count={count}>
               <div>
@@ -75,12 +79,11 @@ export default function UserNav() {
               </div>
             </Badge>
           </button>
-          <Button shape="round" className="loginBTN" type="primary">
-            Đăng nhập
-          </Button>
-        </div>
-      );
-    }
+        </Popover>
+
+        {checkLogin(userInfo)}
+      </div>
+    );
   };
   return <div>{renderContent()}</div>;
 }

@@ -14,7 +14,7 @@ function HomePage() {
       <BannerCarousel />
       <div className="relative mx-auto px-10 py-20 .from-black-revert">
         <LiveAnyway />
-        <div className="background absolute w-full h-2/4 bg-black z-10 top-0 right-0"></div>
+        <div className="background absolute w-full h-2/4 bg-[black] z-[5] top-0 right-0"></div>
       </div>
       <div className="p-6">
         <div className="w-full flex justify-between">
@@ -35,7 +35,7 @@ function HomePage() {
             </Button>
           </div>
         </div>
-        <div className="grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div className="grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           <CardItem />
           <CardItem />
           <CardItem />

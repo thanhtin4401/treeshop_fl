@@ -71,10 +71,10 @@ export default function BannerCarousel() {
                   // style={{ transform: `translate(-50%, -50%)` }}
                   className="absolute lg:w-[40%] mb:top-[50%] mb:left-[50%]  sm:top-[50%] sm:left-[50%]  md:top-[50%] md:left-[50%]  lg:top-[45%] lg:left-[35%] rounded "
                 >
-                  <h1 className="text-white font-bold md:text-5xl sm:text-5xl mb:text-4xl lg:text-7xl  mb-5">
+                  <h1 className="text-[white] font-bold md:text-5xl sm:text-5xl mb:text-4xl lg:text-7xl  mb-5">
                     {item.title}
                   </h1>
-                  <p className="lg:font-bold text-white">{item.des}</p>
+                  <p className="lg:font-bold text-[white]">{item.des}</p>
                 </div>
               </div>
             </SwiperSlide>

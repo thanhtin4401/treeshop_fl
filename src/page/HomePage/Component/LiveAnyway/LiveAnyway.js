@@ -2,7 +2,7 @@ import React from "react";
 import "./liveAnyway.scss";
 export default function LiveAnyway() {
   return (
-    <div className="relative z-20">
+    <div className="relative z-10">
       <h1 className="text-white font-bold text-2xl mb-5">Live anywhere</h1>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 mb:grid-cols-2 sm:grid-cols-2 gap-5">
         <div className="col-span-1 mt-3">
