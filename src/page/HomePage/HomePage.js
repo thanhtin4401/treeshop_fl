@@ -3,11 +3,12 @@ import "./HomePage.scss";
 import CardItem from "../../component/CardItem/CardItem";
 import BannerCarousel from "../../component/BannerCarousel/BannerCarousel";
 import IntroductionTree from "../../component/Introduction/IntroductTree";
-import { Button, Input, Space } from "antd";
+import FilterHomePage from "./Component/Filter/Filter";
 import LiveAnyway from "./Component/LiveAnyway/LiveAnyway";
 import ServiceSection from "./Component/ServiceSection/ServiceSection";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../../redux/produdct/productSlice";
+import { Input } from "antd";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -35,20 +36,8 @@ function HomePage() {
           <h1 className="text-[#7FA25C] font-bold text-[1.5rem] mb-5">
             Sản phậm được ưa chuộng
           </h1>
-          <div className="flex ">
-            <Search
-              placeholder="input search text"
-              onSearch={onSearch}
-              style={{
-                width: 200,
-              }}
-            />
-
-            <Button type="primary" shape="" icon={<></>} size="large">
-              Filter
-            </Button>
-          </div>
         </div>
+        <FilterHomePage />
         <div className="grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           <CardItem />
           <CardItem />

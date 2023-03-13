@@ -80,7 +80,7 @@ function CartPage() {
       setListId(arrLstSelectedRowKeys);
       setSelectedRowKeys(newSelectedRowKeys);
     },
-    getCheckboxProps: (record) => ({}),
+    getCheckboxProps: (_record) => ({}),
   };
 
   return (
